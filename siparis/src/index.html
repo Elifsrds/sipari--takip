@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Yemek Siparişleri</title>
+</head>
+<body>
+    <header>
+        <h1>Siparişler</h1>
+    </header>
+    <section class="orders">
+        <div class="order">
+            <h2>Sipariş 1</h2>
+            <p>Lezzetli bir hamburger.</p>
+        </div>
+        <div class="order">
+            <h2>Sipariş 2</h2>
+            <p>Çeşitli malzemelerle yapılan pizza.</p>
+        </div>
+        <!-- Diğer siparişler buraya eklenebilir -->
+    </section>
+    <style type="text/css">
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+}
+
+.orders {
+    display: flex;
+    justify-content: space-around;
+    padding: 2rem;
+}
+
+.order {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    text-align: center;
+    width: 30%;
+}
+
+    </style>
+    <script type="text/javascript">
+        <!-- index.html -->
+
+<section class="orders" id="orders">
+   
+</section>
+
+ script.js
+const orders = [
+    { name: 'Hamburger', description: 'Lezzetli bir hamburger.' },
+    { name: 'Pizza', description: 'Çeşitli malzemelerle yapılan pizza.' },
+    // Diğer siparişleri buraya ekleyebilirsiniz
+];
+
+const ordersSection = document.getElementById('orders');
+
+orders.forEach(order => {
+    const orderDiv = document.createElement('div');
+    orderDiv.classList.add('order');
+
+    const orderTitle = document.createElement('h2');
+    orderTitle.textContent = order.name;
+
+    const orderDescription = document.createElement('p');
+    orderDescription.textContent = order.description;
+
+    orderDiv.appendChild(orderTitle);
+    orderDiv.appendChild(orderDescription);
+    ordersSection.appendChild(orderDiv);
+});
+
+    </script>
+</body>
+</html>

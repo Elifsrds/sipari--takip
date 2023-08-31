@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>BURGER BRAND</title>
+</head>
+<body>
+    <header>
+        <div class="header-title">
+            <h1>BURGER BRAND</h1>
+        </div>
+        <div class="header-icons">
+            <img src="icon1.png" alt="Icon 1">
+            <img src="icon2.png" alt="Icon 2">
+        </div>
+    </header>
+    <div class="centered-text"><h1>Siparişler</h1></div>
+    <section class="orders">
+        <!-- Siparişleri burada dinamik olarak oluşturun -->
+    </section>
+  
+    <style type="text/css">
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #a71111;
+            color: #fff;
+            text-align: left;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-title {
+            text-align: left;
+        }
+
+        .header-icons {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .centered-text {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .orders {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+            margin: 20px auto;
+        }
+
+        .order {
+            display: flex; /* Yatay düzenlemeyi başlat */
+            border: 1px solid #ddd;
+            padding: 1rem;
+            width: 40%; /* Sipariş kutusunun genişliğini ayarla */
+            margin-bottom: 1rem;
+        }
+
+        .order-image {
+            flex: 1; /* Resim alanına genişlik ver */
+            margin-right: 1rem;
+        }
+
+        .order-details {
+            flex: 2; /* Açıklama ve başlık alanına genişlik ver */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .order-title {
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        .order-description {
+            margin: 0;
+            color: #666;
+        }
+
+        .order-separator {
+            border-bottom: 1px solid #e9e9e9;
+            margin-bottom: 0.5rem;
+        }
+
+        .order-info {
+            color: #ff77a9;
+            font-size: 14px;
+            text-align: right;
+        }
+    </style>
+    <script type="text/javascript">
+        <!-- index.html -->
+
+        const orders = [
+            { name: 'Hamburger', description: 'Lezzetli bir hamburger.', image: 'burger1.jpg' },
+            { name: 'Pizza', description: 'Çeşitli malzemelerle yapılan pizza.', image: 'burger1.jpg' },
+            // Diğer siparişleri buraya ekleyebilirsiniz
+        ];
+
+        const ordersSection = document.querySelector('.orders');
+
+        // Siparişleri dinamik olarak oluşturun
+        orders.forEach((order, index) => {
+            const orderDiv = createOrderDiv(order, index + 1);
+            ordersSection.appendChild(orderDiv);
+        });
+
+        function createOrderDiv(order, orderNumber) {
+            const orderDiv = document.createElement('div');
+            orderDiv.classList.add('order');
+
+            const orderImage = document.createElement('img');
+            orderImage.src = order.image;
+            orderImage.alt = order.name;
+            orderImage.classList.add('order-image');
+            orderDiv.appendChild(orderImage);
+
+            const orderDetails = document.createElement('div');
+            orderDetails.classList.add('order-details');
+
+            const orderTitle = document.createElement('h2');
+            orderTitle.classList.add('order-title');
+            orderTitle.textContent = order.name;
+            orderDetails.appendChild(orderTitle);
+
+            const orderSeparator = document.createElement('div');
+            orderSeparator.classList.add('order-separator');
+            orderDetails.appendChild(orderSeparator);
+
+            const orderDescription = document.createElement('p');
+            orderDescription.classList.add('order-description');
+            orderDescription.textContent = order.description;
+            orderDetails.appendChild(orderDescription);
+
+            const orderInfo = document.createElement('p');
+            orderInfo.classList.add('order-info');
+            orderInfo.textContent = 'Sipariş hakkında daha fazla bilgi';
+            orderDetails.appendChild(orderInfo);
+
+            orderDiv.appendChild(orderDetails);
+
+            return orderDiv;
+        }
+    </script>
+</body>
+</html>
